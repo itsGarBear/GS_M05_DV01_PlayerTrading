@@ -83,8 +83,7 @@ public class TradeOffers : MonoBehaviour
             tradeOfferButtons[x].onClick.RemoveAllListeners();
             int tradeIndex = x;
             tradeOfferButtons[x].onClick.AddListener(() => OnTradeOfferButton(tradeIndex));
-            tradeOfferButtons[x].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-            tradeOfferInfo.playerDisplayNames[x];
+            tradeOfferButtons[x].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = tradeOfferInfo.playerDisplayNames[x];
         }
 
     }

@@ -48,6 +48,18 @@ public class Trade : MonoBehaviour
 
     public void GetInventory()
     {
+        ExecuteCloudScriptRequest grantItems = new ExecuteCloudScriptRequest
+        {
+            FunctionName = "GiveItemsToNewUser"
+        };
+        PlayFabClientAPI.ExecuteCloudScript(grantItems,
+            result =>
+            {
+                print("Granted items: " + result.ToJson());
+            },
+            error => print("Could not give user items")
+        );
+
         inventoryText.text = "";
         
         GetPlayerCombinedInfoRequest getInvRequest = new GetPlayerCombinedInfoRequest
